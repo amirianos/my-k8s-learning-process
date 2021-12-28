@@ -1,0 +1,43 @@
+---
+
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Ensure CRI-O's version of runc is installed on Debian/Ubuntu hosts.
+  package:
+    name: "cri-o-runc"
+    state: "{{ crio_package_state }}"
+  when:
+    - ansible_os_family == 'Debian'
+    - crio_runtime == 'runc'
+  become: yes
+
+- name: Ensure /var/run/crio exists
+  file:
+    path: "/var/run/crio"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  become: yes
+
+- name: Ensure CRI-O is installed.
+  package:
+    name: "{{ crio_package }}"
+    state: "{{ crio_package_state }}"
+  become: yes
+
+- name: Ensure CRI-O is started and enabled at boot.
+  service:
+    name: crio
+    state: "{{ crio_service_state }}"
+    enabled: "{{ crio_service_enabled }}"
+  become: yes
+
+
+- name: Restart  CRI_O with systemD
+  service:
+    name: crio
+    state: restarted
+  become: yes
+

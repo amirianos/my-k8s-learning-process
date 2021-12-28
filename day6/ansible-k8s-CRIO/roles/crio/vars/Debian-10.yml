@@ -1,0 +1,5 @@
+---
+kubic_apt_gpg_key: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_10/Release.key"
+
+kubic_apt_repository: "deb [arch={{ kubic_apt_arch }}] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_10 /"
+crio_apt_repository: "deb [arch={{ kubic_apt_arch }}] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/{{ crio_version }}/Debian_10 /"

@@ -1,0 +1,5 @@
+---
+kubic_apt_gpg_key: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/Release.key"
+
+kubic_apt_repository: "deb [arch={{ kubic_apt_arch }}] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04 /"
+crio_apt_repository: "deb [arch={{ kubic_apt_arch }}] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/{{ crio_version }}/xUbuntu_20.04 /"

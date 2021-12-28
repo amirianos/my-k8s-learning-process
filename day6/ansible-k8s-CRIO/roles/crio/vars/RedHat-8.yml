@@ -1,0 +1,5 @@
+---
+kubic_yum_gpg_key: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/CentOS_8/repodata/repomd.xml.key"
+
+kubic_yum_repository: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/CentOS_8/devel:kubic:libcontainers:stable.repo"
+crio_yum_repository: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/{{ crio_version }}/CentOS_8/devel:kubic:libcontainers:stable:cri-o:{{ crio_version }}.repo"

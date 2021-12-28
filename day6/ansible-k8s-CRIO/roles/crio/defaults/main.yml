@@ -1,0 +1,39 @@
+---
+crio_version: "1.21"
+
+# Package options.
+crio_package: cri-o
+crio_package_state: present
+
+# Service options.
+crio_service_state: started
+crio_service_enabled: true
+
+# Storage driver
+crio_storage_driver: "overlay"
+
+# Systemd slice to run the cri-o service in
+crio_systemd_slice: "system.slice"
+
+# Container runtime
+crio_runtime: "runc"
+
+# CRI-O extra configurations
+crio_extra_config: ''
+
+# Used only for Debian/Ubuntu.
+kubic_apt_arch: amd64
+kubic_apt_ignore_key_error: true
+
+# Kubernetes repositories
+kubernetes_apt_release_channel: main
+# Note that xenial repo is used for all Debian derivatives at this time.
+kubernetes_apt_repository: "deb http://apt.kubernetes.io/ kubernetes-xenial {{ kubernetes_apt_release_channel }}"
+kubernetes_apt_gpg_key: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+kubernetes_apt_ignore_key_error: false
+
+kubernetes_yum_arch: '$basearch'
+kubernetes_yum_base_url: "https://packages.cloud.google.com/yum/repos/kubernetes-el7-{{ kubernetes_yum_arch }}"
+kubernetes_yum_gpg_key:
+  - https://packages.cloud.google.com/yum/doc/yum-key.gpg
+  - https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
