@@ -1,0 +1,2 @@
+Today i learned about openshift and OKD and i tried to setup a OKD v3.11 cluster with ansible 
+The second target is write ansible playbook for automate setup a OKD cluster
